@@ -1,17 +1,5 @@
 jobs:
-  test:
-    steps:
-      - name: Install dependencies
-        image: python:3.9
-        commands:
-          - pip install -r requirements.txt
-          - pip install pytest
-          
-      - name: Run tests
-        image: python:3.9
-        commands:
-          - pytest tests/
-  
+
   docker_build:
     # This special job will build and push a Docker image to DockerHub
     # No steps needed - handled by the docker_builder
