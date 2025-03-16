@@ -1,0 +1,23 @@
+
+jobs:
+  test:
+    steps:
+      - name: Install dependencies
+        image: python:3.9
+        commands:
+          - pip install -r requirements.txt
+          
+      - name: Run tests
+        image: python:3.9
+        commands:
+          - pytest tests/
+  
+  deploy:
+    steps:
+      - name: Deploy to local
+        image: python:3.9
+        commands:
+          - mkdir -p ./deployed
+          - cp index.html ./deployed/
+          - echo 'Deployment successful at' $(date) > ./deployed/deploy.log
+
